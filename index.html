@@ -1,0 +1,328 @@
+
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biografi Saya - Nama Anda</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        /* Reset dan Base Styles */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: #333;
+            overflow-x: hidden;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+        }
+
+        /* Navbar */
+        nav {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(51, 51, 51, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            transition: background 0.3s;
+        }
+        nav ul {
+            list-style: none;
+            display: flex;
+            justify-content: center;
+            gap: 2rem;
+        }
+        nav li a {
+            color: rgb(0, 0, 0);
+            font-weight: 600;
+            padding: 0.5rem 1rem;
+            border-radius: 5px;
+            transition: background 0.3s;
+        }
+        nav li a:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+        @media (max-width: 768px) {
+            nav ul {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            background: linear-gradient(rgba(0, 150, 200, 0.8), rgba(0, 200, 150, 0.8)), url('foto-profil.jpg') center/cover no-repeat;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: rgb(255, 253, 253);
+            position: relative;
+        }
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            animation: fadeInUp 1s ease-out;
+        }
+        .hero-content p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            animation: fadeInUp 1s ease-out 0.2s both;
+        }
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Container Utama */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem 1rem;
+        }
+
+        /* Sections */
+        section {
+            margin: 4rem 0;
+            padding: 2rem;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            opacity: 0;
+            transform: translateY(50px);
+            transition: all 0.6s ease;
+        }
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        section h2 {
+            font-size: 2.5rem;
+            color: #0098c8;
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        section i {
+            color: #00c899;
+            font-size: 2rem;
+        }
+        .profil-grid {
+            display: grid;
+            grid-template-columns: 1fr 2fr;
+            gap: 2rem;
+            align-items: center;
+            text-align: center;
+        }
+        .profil img {
+            width: 250px;
+            height: 250px;
+            border-radius: 50%;
+            border: 5px solid #0098c8;
+            transition: transform 0.3s;
+        }
+        .profil img:hover {
+            transform: scale(1.05);
+        }
+        ul {
+            list-style: none;
+            padding-left: 0;
+        }
+        ul li {
+            background: #f8f9fa;
+            margin: 1rem 0;
+            padding: 1rem;
+            border-radius: 10px;
+            border-left: 4px solid #00c899;
+            transition: background 0.3s;
+        }
+        ul li:hover {
+            background: #e9f7ff;
+        }
+        ul li strong {
+            color: #0098c8;
+        }
+
+        /* Kontak */
+        .kontak-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 1rem;
+        }
+        .kontak-item {
+            text-align: center;
+            padding: 1rem;
+            background: linear-gradient(135deg, #0098c8, #00c899);
+            color: white;
+            border-radius: 10px;
+            transition: transform 0.3s;
+        }
+        .kontak-item:hover {
+            transform: translateY(-5px);
+        }
+        .kontak-item i {
+            font-size: 2rem;
+            margin-bottom: 0.5rem;
+        }
+
+        /* Footer */
+        footer {
+            background: linear-gradient(135deg, #333, #555);
+            color: white;
+            text-align: center;
+            padding: 2rem;
+            margin-top: 4rem;
+        }
+
+        /* Responsif */
+        @media (max-width: 768px) {
+            .hero-content h1 { font-size: 2rem; }
+            .profil-grid { grid-template-columns: 1fr; }
+            section { margin: 2rem 0; padding: 1rem; }
+            nav ul { gap: 1rem; }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <nav>
+        <ul>
+            <li><a href="#hero">Home</a></li>
+            <li><a href="#tentang">Tentang</a></li>
+            <li><a href="#pendidikan">Pendidikan</a></li>
+            <li><a href="#pengalaman">Pengalaman</a></li>
+            <li><a href="#prestasi">Prestasi</a></li>
+            <li><a href="#kontak">Kontak</a></li>
+        </ul>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="hero">
+        <div class="hero-content">
+            <h1>Selamat Datang di Biografi Saya</h1>
+            <p>Deskripsi singkat tentang perjalanan hidup saya yang penuh inspirasi dan pencapaian. Mari kenali lebih dekat!</p>
+        </div>
+    </section>
+
+    <div class="container">
+        <!-- Profil Section -->
+        <section id="profil" class="profil-section">
+            <h2><i class="fas fa-user"></i> Profil Saya</h2>
+            <div class="profil-grid">
+                <div class="profil">
+                    <img src="sahid(3).png" alt="Foto Profil Saya">
+                </div>
+                <div>
+                    <h3>Satria Sahid Hidayatulloh</h3>
+                    <p>Saya adalah seorang pemula yang sedang belajar HTMl, CSS, dan JS(JavaScript). Saya memiliki impian yaitu membuat game saya sendiri atau website profesional sendiri, Maka dari itu saat ini saya sedang belajar hal-hal dasarnya mulai hari ini🔥</p>
+                </div>
+            </div>
+        </section>
+
+        <!-- Tentang Section -->
+        <section id="tentang">
+            <h2><i class="fas fa-info-circle"></i> Tentang Saya</h2>
+            <p>
+                Di sini, ceritakan latar belakang Anda secara detail. Misalnya:
+                <ul>
+                    <li><strong>Latar Belakang Keluarga:</strong> Lahir pada tanggal 3 mei 2009 di Jawa timur, kediri kec.mojo . Saya adalah anak tunggal dan dibesarkan dalam lingkungan yang mendukung pendidikan.</li>
+                    <li><strong>Hobi & Minat:</strong> Saya suka bermain game yang mengasah otak/teka-teki, traveling ke tempat-tempat alam, dan belajar dasar-dasar coding.</li>
+                    <li><strong>Visi Hidup:</strong> Saya bercita-cita untuk video editor/web developer, dan terus belajar untuk mencapainya.</li>
+                </ul>
+            </p>
+        </section>
+
+        <!-- Pendidikan Section -->
+        <section id="pendidikan">
+            <h2><i class="fas fa-graduation-cap"></i> Pendidikan</h2>
+            <ul>
+                <li><strong>2025 - SMK</strong>: SMKN 1 SEMEN, KEIDRI. Prestasi: ...</li>
+                <!-- Tambahkan lebih banyak -->
+            </ul>
+        </section>
+
+        <!-- Pengalaman Section -->
+     
+        <!-- Prestasi Section -->
+        <section id="prestasi">
+            <h2><i class="fas fa-trophy"></i> Prestasi & Keterampilan</h2>
+            <ul>
+                <li><strong>Keterampilan:</strong> Public speaking, dasar-dasar HTML,CSS, dan JavaScript, Dasar editing di aplikasi Alight-motion .</li>
+        </section>
+
+        <!-- Kontak Section -->
+        <section id="kontak">
+            <h2><i class="fas fa-envelope"></i> Hubungi Saya</h2>
+            <div class="kontak-grid">
+                <div class="kontak-item">
+                    <i class="fas fa-envelope"></i>
+                    <p>Email: <a href="mailto:satriasahiid@gmail.com" style="color: white;">satriasahiid@gmail.com</a></p>
+                </div>
+                <div class="kontak-item">
+                    <i class="fas fa-phone"></i>
+                    <p>Telepon: +62 813-5785-3279</p>
+                </div>
+                <div class="kontak-item">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <p>Alamat: Jawa Timur, kediri, kab.mojo, indonesia</p>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2025 Biografi Saya. Dibuat dengan ❤️ dan inspirasi. | Desain oleh BLACKBOX.AI Assistant</p>
+    </footer>
+
+    <!-- JavaScript untuk Animasi Scroll -->
+    <script>
+        // Smooth scroll untuk navbar links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            });
+        });
+
+        // Fade-in sections saat scroll
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section').forEach(section => {
+            observer.observe(section);
+        });
+    </script>
+</body>
+</html>
+<!DOCTYPE html>
