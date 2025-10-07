@@ -43,9 +43,10 @@
             display: flex;
             justify-content: center;
             gap: 2rem;
+            padding: 0 1rem;
         }
         nav li a {
-            color: rgb(0, 0, 0);
+            color: white);
             font-weight: 600;
             padding: 0.5rem 1rem;
             border-radius: 5px;
@@ -54,7 +55,7 @@
         nav li a:hover {
             background: rgba(255, 255, 255, 0.1);
         }
-        @media (max-width: 768px) {
+        @media (max-width: 748px) {
             nav ul {
                 flex-direction: column;
                 gap: 0.5rem;
@@ -64,13 +65,14 @@
         /* Hero Section */
         .hero {
             height: 100vh;
-            background: linear-gradient(rgba(0, 150, 200, 0.8), rgba(0, 200, 150, 0.8)), url('foto-profil.jpg') center/cover no-repeat;
+            background: linear-gradient(rgba(0, 150, 200, 0.7), rgba(0, 200, 150, 0.7)), url('foto-profil.jpg') center/cover no-repeat;
             display: flex;
             align-items: center;
             justify-content: center;
             text-align: center;
             color: rgb(255, 253, 253);
             position: relative;
+            padding: 1rem
         }
         .hero-content h1 {
             font-size: 3rem;
@@ -110,6 +112,7 @@
             opacity: 0;
             transform: translateY(50px);
             transition: all 0.6s ease;
+            overflow: hidden;
         }
         section.visible {
             opacity: 1;
@@ -123,6 +126,9 @@
             align-items: center;
             gap: 0.5rem;
         }
+        section h3 {
+            font-size: 1.8rem;
+        }    
         section i {
             color: #00c899;
             font-size: 2rem;
@@ -137,6 +143,7 @@
         .profil img {
             width: 250px;
             height: 250px;
+            max-width:100%;
             border-radius: 50%;
             border: 5px solid #0098c8;
             transition: transform 0.3s;
@@ -195,7 +202,7 @@
         }
 
         /* Responsif */
-        @media (max-width: 768px) {
+        @media (max-width: 480px) {
             .hero-content h1 { font-size: 2rem; }
             .profil-grid { grid-template-columns: 1fr; }
             section { margin: 2rem 0; padding: 1rem; }
@@ -327,3 +334,4 @@
 </html>
 
 <!DOCTYPE html>
+
