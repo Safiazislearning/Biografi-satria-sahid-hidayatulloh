@@ -1,1 +1,0 @@
-# Biografi-satria-sahid-hidayatulloh
