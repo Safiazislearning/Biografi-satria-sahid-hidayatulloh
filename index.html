@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Biografi Saya </title>
+    <style>
+        /* CSS untuk styling */
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            color: #333;
+            line-height: 1.6;
+        }
+        header {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            text-align: center;
+            padding: 100px 20px;
+            position: relative;
+        }
+        header img {
+            width: 150px;
+            height: 150px;
+            border-radius: 200%;
+            border: 5px solid white;
+            margin-bottom: 20px;
+        }
+        header h1 {
+            margin: 0;
+            font-size: 2.5em;
+        }
+        header p {
+            font-size: 1.2em;
+            margin: 10px 0;
+        }
+        nav {
+            background: #333;
+            padding: 10px 0;
+            text-align: center;
+        }
+        nav a {
+            color: white;
+            text-decoration: none;
+            margin: 0 20px;
+            font-weight: bold;
+            transition: color 0.3s;
+        }
+        nav a:hover {
+            color: #667eea;
+        }
+        section {
+            padding: 60px 20px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+        #tentang {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        #pendidikan, #pengalaman, #hobi {
+            background: white;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border-radius: 10px;
+            margin-bottom: 20px;
+        }
+        h2 {
+            color: #667eea;
+            border-bottom: 2px solid #667eea;
+            padding-bottom: 10px;
+        }
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+        ul li {
+            background: #f9f9f9;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 5px;
+            transition: transform 0.3s;
+        }
+        ul li:hover {
+            transform: translateX(10px);
+        }
+        footer {
+            background: #333;
+            color: white;
+            text-align: center;
+            padding: 20px;
+            margin-top: 40px;
+        }
+        /* Animasi sederhana */
+        section {
+            opacity: 0;
+            transform: translateY(20px);
+            transition: opacity 0.6s, transform 0.6s;
+        }
+        section.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        @media (max-width: 768px) {
+            header h1 { font-size: 2em; }
+            nav a { display: block; margin: 10px 0; }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <img src="sahid(3).png" alt="Foto Profil [Nama Anda]"> <!-- Ganti dengan path foto Anda -->
+        <h1>Satria Sahid Hidayatulloh</h1>
+        <p>Seorang pelajar yang tertarik akan hal baru!!!</p>
+    </header>
+
+    <nav>
+        <a href="#tentang">Tentang Saya</a>
+        <a href="#pendidikan">Pendidikan</a>
+        <a href="#pengalaman">Pengalaman Kerja</a>
+        <a href="#hobi">Hobi & Minat</a>
+    </nav>
+
+    <section id="tentang">
+        <h2>Tentang Saya</h2>
+        <p>Halo! Saya Satria Sahid Hidayatulloh, seorang pelajar yang suka mencoba hal baru seperi coding, editing dan lain-lain!!. Saya lahir di kediri, kec.mojo desa pamongan, pada 03 mei 2009 dan tumbuh di keluarga yang sederhana</p>
+        <p>Dalam perjalanan hidup saya, saya belajar bahwa  💭Mimpi besar dimulai dari niat sederhana. Saya percaya bahwa 🌿Hidup bernilai saat bermanfaat bagi orang lain.</p>
+    </section>
+
+    <section id="pendidikan">
+        <h2>Pendidikan</h2>
+        <ul>
+            <li>
+                <strong>Seorang pelajar SMK </strong><br>
+                SMK NEGERI 1 SEMEN, kelas 11<br>
+                Saya bersekolah di jurusan TKJ (Teknik Komputer dan Jaringan)
+            </li>
+           
+
+    <section id="pengalaman">
+        <h2>Pengalaman Kerja</h2>
+        <ul>
+            <li>
+                <strong>Belum ada saya masih mencari jati diri</strong>
+            </li>
+    </section>
+
+    <section id="hobi">
+        <h2>Hobi & Minat</h2>
+        <ul>
+            <li>Bermain game</li>
+            <li>Mengedit video</li>
+            <li>Belajar bahasa pemrograman baru</li>
+        </ul>
+    </section>
+
+    <footer>
+        <p>&copy; 2023 Satria Sahid Hidayatulloh. Semua hak cipta dilindungi. Hubungi saya di satriasahiid@gmail.com.</p>
+    </footer>
+
+    <script>
+        // JavaScript sederhana untuk animasi scroll
+        const sections = document.querySelectorAll('section');
+        const options = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
+            });
+        }, options);
+
+        sections.forEach(section => {
+            observer.observe(section);
+        });
+
+        // Smooth scroll untuk nav links
+        document.querySelectorAll('nav a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                target.scrollIntoView({ behavior: 'smooth' });
+            });
+        });
+    </script>
+</body>
+</html>
